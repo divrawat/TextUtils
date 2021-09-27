@@ -29,17 +29,22 @@ const handleExtraClick=()=>{
    setText(newText.join(" "));
 }
 
+// Changes made by Japsimran Singh
 const handleCapitalClick=()=>{
-    let newtext=text[0].toUpperCase();
+  let splitText = text.split(".");
+  let finalText = '';
+  for (var i=0;i<splitText.length;i++){
+    // trimming to remove empty leading and trailing spaces.
+    splitText[i] = splitText[i].trim()   
+    // Now making first letter capital.
+    // console.log(splitText[i][0].toUpperCase() + splitText[i].substring(1))
+    finalText += splitText[i][0].toUpperCase()+ splitText[i].substring(1) + '. ';
     
-      for(let i=1;i<10000;i++){
-       
-     if(text[i]==="."){
-          text[i+1].toUpperCase();
-     }
-     
-    }
-    setText(newtext+text.slice(1,));  
+  }
+  
+  console.log(finalText);
+  // setText(newtext+text.slice(1,));  
+  setText(finalText);  
 }
 
 const handleOnChange=(event)=>{
